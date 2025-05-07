@@ -71,6 +71,5 @@ class AuthService
     ]);
 
     session_destroy();
-    return redirect('/auth/login');
   }
 }

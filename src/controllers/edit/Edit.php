@@ -116,9 +116,7 @@ class Edit extends Controller
             }
 
             http_response_code(200);
-            return json([
-                'message' => 'User has been deleted.'
-            ]);
+            return redirect('/auth/login');
         } catch (PDOException $e) {
             http_response_code(400);
             return json([
