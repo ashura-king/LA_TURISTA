@@ -1,0 +1,153 @@
+.popup-dialog {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* slightly darker backdrop */
+  backdrop-filter: blur(4px); /* soft blur effect for background */
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-dialog-content {
+  background: #ffffff;
+  margin: auto;
+  padding: 30px 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+color: #000;
+  animation: popupFadeIn 0.3s ease-out;
+}
+
+.popup-close {
+  color: #555;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.popup-close:hover {
+  color: #ff5b5b; /* subtle red on hover */
+}
+
+/* Smooth fade-in animation for popup dialog */
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Optional: make text inputs and buttons inside popup prettier */
+.popup-dialog-content input[type="text"],
+.popup-dialog-content input[type="email"],
+.popup-dialog-content textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.popup-dialog-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+
+
+}
+.pop-close i{
+  font-size: 50px;
+ 
+}
+.popup-dialog-content button:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+
+}
+.popup-dialog-content button:focus{
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-update, .popup-delete {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-update {
+  background-color: #4CAF50; /* green */
+  color: white;
+}
+
+.popup-delete {
+  background-color: #f44336; /* red */
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .gallery {
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    width: 120px;
+  }
+  
+  h2 {
+    margin-top: 80px;
+  }
+  
+  .popup-dialog-content {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-item {
+    width: 100px;
+  }
+  
+  h2 {
+    margin-top: 60px;
+  }
+}

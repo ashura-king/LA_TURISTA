@@ -1,0 +1,37 @@
+{
+  "name": "zorncbllr/php-mono",
+  "description": "A Fast, Powerful, and Object Oriented PHP Web Framework.",
+  "type": "project",
+  "require": {
+    "php": ">=8.1.0",
+    "vlucas/phpdotenv": "^5.6"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": false,
+  "version": "0.0.2",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Src\\": "src/",
+      "Src\\Core\\": "src/core/",
+      "Src\\Models\\": "src/models/",
+      "Src\\Controllers\\": "src/controllers/",
+      "Src\\Services\\": "src/services/",
+      "Src\\Middlewares\\": "src/middlewares/",
+      "Src\\Core\\Utils\\Helpers\\": "src/core/utils/helpers/",
+      "Src\\Core\\Utils\\": "src/core/utils/",
+      "Src\\Core\\Utils\\Includes\\": "src/core/utils/includes/",
+      "Src\\Core\\Utils\\Annotations\\": "src/core/utils/annotations/",
+      "Src\\Core\\Utils\\Mono_Cli\\": "src/core/utils/mono_cli/"
+    }
+  },
+  "scripts": {
+    "dev": "php mono -s & npm run dev"
+  },
+  "authors": [
+    {
+      "name": "Manuel",
+      "email": "caballeromanuel203@gmail.com"
+    }
+  ]
+}

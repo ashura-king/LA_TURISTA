@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root {
+  --primary-color: #669ccb;
+  --primary-color-dark: #5681a7;
+  --secondary-color: #e8f1fa;
+  --text-dark: #282d31;
+  --text-light: #767268;
+  --extra-light: #f3f4f6;
+
+  --max-width: 1200px;
+}
+
+/* Soft gradient background */
+body {
+  background: linear-gradient(to bottom, #f7e0c4, #f4d9b6);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Blurred scenic background image */
+body::before {
+content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/cagsawa.jpg') center/cover no-repeat;
+  filter: blur(10px);
+  opacity: 0.3; /* Soft visibility */
+  z-index: -1;
+}
+h2{
+  text-align: center;
+}
+
+nav {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 97%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: azure;
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 40px; 
+}
+  
+.nav__logo {
+  display: flex;
+  margin-left: -40px;
+}
+.nav__logo img {
+  height: 100px;
+  object-fit: contain;
+  
+}
+
+
+.nav__links {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+.nav__links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.user-pic {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+ 
+}
+.sub-menu-wrap{
+  position: absolute;
+  top: 70%;
+  right: -1%;
+  width:320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+  max-height: 400px;
+
+}
+.sub-menu{
+  background: #f3f4f6;
+  padding: 20px;
+  margin:10px;
+}
+.user-info{
+ display: flex; 
+align-items: center;
+
+}
+.user-info h3{
+  font-weight: 500;
+  color: #282d31;
+
+
+}
+.user-info img{
+  width: 60px;
+  border-radius: 50px;
+  margin-right: 15px ;
+}
+
+.sub-menu hr{
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+  
+}
+.sub-menu-link p{
+  width: 100%;
+}
+.sub-menu-link img{
+  width: 40px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+.sub-menu-link span{
+  font-size: 32px;
+  transition: transorm 0.5; ;
+}
+.sub-menu-link :hover span{
+  transform: translateX(5px);
+}
+.sub-menu-link:hover p{
+  font-weight: 600;
+}
+
+.nav__links li a:hover {
+  color: aqua; 
+}
+
+.hero {
+  background-image: url('/assets/Quitinday.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 400px; 
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+align-items: center;
+  justify-content: left;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  padding-left: 20px;
+  padding-top: 100px;
+  
+}
+
+
+
+h2 {
+  font-weight: bold;
+  margin-top: 120px; 
+  margin-bottom: 100px;
+  
+}
+
+.gallery {
+  display: grid; 
+  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.gallery-item {
+  text-align: center;
+  margin-bottom: 15px;
+  width: 300px; 
+}
+
+.gallery img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image-title {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; 
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  max-height: 80vh; 
+  overflow-y: auto;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.modal h2, .modal p {
+  margin: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 9px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.map {
+  margin-top: 10px;
+  border-radius: 8px;
+  width: 80%; 
+  max-width: 300px; 
+  height: auto; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.message {
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+  text-align: center;
+}
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.comment-box {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 1px solid #a10b0b;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 80px;
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8e5e5;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.comment-box:focus {
+  border-color: #3b82f6; 
+  outline: none;
+  box-shadow: 0 0 8px 2px rgba(59, 130, 246, 0.5);
+}
+
+#ratingSubmitBtn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: none;
+}
+#ratingSubmitBtn:hover {
+  background-color: #45a049;
+}
+.star-rating-container {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+.stars-container {
+  display: flex;
+  margin: 10px 0;
+}
+.star {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.star:hover, .star.selected {
+  color: gold;
+}
+/* Full star (gold) */
+.bxs-star {
+  color: gold;
+}
+
+/* Empty star (gray) */
+.bx-star {
+  color: gray;
+}
+
+#submitRatingBtn {
+  background-color: #1adcbf;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#submitRatingBtn:hover {
+  background-color: #45a049;
+}
+#starRatingText {
+  margin: 10px 0;
+  font-style: italic;
+}
+
+
