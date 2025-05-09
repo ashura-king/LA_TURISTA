@@ -193,6 +193,27 @@
       onclick="openModal('/assets/jovellar.jpg', 'Jovellar Underground River', 'A cave with a freely flowing water into a gorge and a cliff jumping spot.', 'Jovellar, Albay', 'March-June', 'Raft ride,Swimming,Waterfall climbing,Photography', '/assets/jovellarmap.png')">
     <p class="image-title">Jovellar Underground River</p>
   </div>
+
+  <div class="gallery-item">
+    <img src="/assets/4.jpg" alt="Pinamuntugan Beach"
+      onclick="openModal('/assets/4.jpg', 'The Farmplate', 'A fresh and relaxing spot for people in town', 'Bacacay,Albay', 'May-June', ' Swimming, Camping, Sunset view', '/assets/pinamap.png')">
+    <p class="image-title">The Farmplate</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/3.jpg" alt="Pinamuntugan Beach"
+      onclick="openModal('/assets/3.jpg', 'Daraga Church', 'A fresh and relaxing spot for people in town', 'Bacacay,Albay', 'May-June', ' Swimming, Camping, Sunset view', '/assets/pinamap.png')">
+    <p class="image-title">Daraga Church</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/2.jpg" alt="Pinamuntugan Beach"
+      onclick="openModal('/assets/2.jpg', 'Jovellar Cave', 'A fresh and relaxing spot for people in town', 'Bacacay,Albay', 'May-June', ' Swimming, Camping, Sunset view', '/assets/pinamap.png')">
+    <p class="image-title">Jovellar Cave</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Photo.jpg" alt="Pinamuntugan Beach"
+      onclick="openModal('/assets/Photo.jpg', 'Sumlang Lake', 'A fresh and relaxing spot for people in town', 'Bacacay,Albay', 'May-June', ' Swimming, Camping, Sunset view', '/assets/pinamap.png')">
+    <p class="image-title">Sumlang Lake</p>
+  </div>
 </div>
 
 <!-- Modal -->

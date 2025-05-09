@@ -110,14 +110,14 @@
       'Location: Imelda Roces Ave, Legazpi City, Albay', 
       'Experience the finest in hospitality at The Marison Hotel, recognized as the best luxury hotel in Legazpi City, Albay offering unparalleled comfort and world-class service.', 
       5, 
-      ['/assets/marison1.jpg','/assest/marsion2.jpg','/aseets/marison3.jpg','/assets/marison4.jpg'], 
+      ['/assets/marison1.jpg','/assets/oriental2.jpg','/assets/marison3.jpg'], 
      [
      'Special Offer: 10% off for a 3-night stay!',
      'Unparalleled comfort and world-class service.',
      
      'Book online and get up to 30% discount via Traveloka.',
      'Experience the finest in hospitality at The Marison Hotel.',
-    'Recognized as the best luxury hotel in Legazpi City, Albay.',
+    'Recognized as the best luxury hotel in Legazpi City, Albay.'
      ]
       
     )">

@@ -44,6 +44,7 @@ nav {
 .nav__logo img {
   height: 100px;
   object-fit: contain;
+  box-shadow: #000;
   
 }
 
@@ -54,12 +55,14 @@ nav {
   list-style: none;
   margin: 0;
   padding: 0;
+ 
   
 }
 .nav__links li a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transition: color 0.3s ease;
 }
 
