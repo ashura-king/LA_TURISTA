@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
   <?php if (isset($message) && !empty($message)): ?>
     <div class="message <?php echo $messageType; ?>">
       <?php echo $message; ?>

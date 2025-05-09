@@ -18,9 +18,9 @@
 
 <!-- Display messages if they exist -->
 <?php if (isset($message) && !empty($message)): ?>
-  <div class="message <?php echo $messageType; ?>">
-    <?php echo $message; ?>
-  </div>
+<div class="message <?php echo $messageType; ?>">
+  <?php echo $message; ?>
+</div>
 <?php endif; ?>
 
 <section class="hero">
@@ -207,7 +207,7 @@
   <div class="gallery-item">
     <img src="/assets/2.jpg" alt="Pinamuntugan Beach"
       onclick="openModal('/assets/2.jpg', 'Jovellar Cave', 'A fresh and relaxing spot for people in town', 'Bacacay,Albay', 'May-June', ' Swimming, Camping, Sunset view', '/assets/pinamap.png')">
-    <p class="image-title">Jovellar Cave</p>
+    <p class="image-title">Hoyop-hoyopan Cave</p>
   </div>
   <div class="gallery-item">
     <img src="/assets/Photo.jpg" alt="Pinamuntugan Beach"
