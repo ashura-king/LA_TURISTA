@@ -96,17 +96,17 @@ function openModal(imageSrc, title, description, location, bestTime, activities,
   document.getElementById("modalActivities").innerText = activities;
   document.getElementById("modalMap").src = mapSrc;
 
-  // Reset rating form
+ 
   resetRatingForm();
   
-  // Fetch the latest ratings for this destination from server
+ 
   fetchDestinationRatings(title);
   
-  // Ensure comments section exists
+ 
   ensureCommentsSection();
 }
 
-// Fetch ratings for a specific destination
+
 function fetchDestinationRatings(destinationName) {
   const encodedName = encodeURIComponent(destinationName);
   
@@ -116,22 +116,22 @@ function fetchDestinationRatings(destinationName) {
       return response.json();
     })
     .then(data => {
-      // Update ratings data for this destination
+     
       ratingsData[destinationName] = data;
       
-      // Update UI
+   
       displayComments();
       updateAverageRating();
     })
     .catch(error => {
       console.warn(`Failed to load ratings for ${destinationName}:`, error);
-      // Display whatever we have in the ratingsData object (which might be from localStorage)
+      
       displayComments();
       updateAverageRating();
     });
 }
 
-// Update the average rating display
+
 function updateAverageRating() {
   const destRatings = ratingsData[currentDestination] || [];
   
