@@ -22,6 +22,7 @@
 </head>
 
 <body>
+  <?php include('loader.blade.php'); ?>
   <div class="Section_top">
     <div class="content">
       <h1>La <span>turista</span></h1>

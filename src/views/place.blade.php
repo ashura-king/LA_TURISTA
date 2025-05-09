@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+  <?php include('loader.blade.php'); ?>
   <section class="hero">
     <nav>
       <div class="nav__logo">

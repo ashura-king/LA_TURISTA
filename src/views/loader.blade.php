@@ -1,154 +1,157 @@
 <style>
-@keyframes rotarBall {
-  0% {
-    transform: rotate(-10deg);
+  @keyframes rotarBall {
+    0% {
+      transform: rotate(-10deg);
+    }
+
+    100% {
+      transform: rotate(10deg);
+    }
   }
 
-  100% {
-    transform: rotate(10deg);
-  }
-}
+  @keyframes rotarCircleTop {
+    0% {
+      transform: translateX(-50%) rotate(10deg);
+    }
 
-@keyframes rotarCircleTop {
-  0% {
-    transform: translateX(-50%) rotate(10deg);
-  }
-
-  100% {
-    transform: translateX(-50%) rotate(-10deg);
-  }
-}
-
-@keyframes rotarCicle {
-  0% {
-    transform: translate(-50%, -50%) rotate(10deg);
+    100% {
+      transform: translateX(-50%) rotate(-10deg);
+    }
   }
 
-  100% {
-    transform: translate(-50%, -50%) rotate(-10deg);
-  }
-}
+  @keyframes rotarCicle {
+    0% {
+      transform: translate(-50%, -50%) rotate(10deg);
+    }
 
-@keyframes moveFish {
-  0% {
-    left: 10%;
-    transform: scaleX(1);
-  }
-
-  50% {
-    left: calc(90% - 40px);
-    transform: scaleX(1);
+    100% {
+      transform: translate(-50%, -50%) rotate(-10deg);
+    }
   }
 
-  51% {
-    left: calc(90% - 40px);
-    transform: scaleX(-1);
+  @keyframes moveFish {
+    0% {
+      left: 10%;
+      transform: scaleX(1);
+    }
+
+    50% {
+      left: calc(90% - 40px);
+      transform: scaleX(1);
+    }
+
+    51% {
+      left: calc(90% - 40px);
+      transform: scaleX(-1);
+    }
+
+    100% {
+      left: 10%;
+      transform: scaleX(-1);
+    }
   }
 
-  100% {
-    left: 10%;
-    transform: scaleX(-1);
+  .loader-container {
+    transition: all 1s ease-out;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: absolute;
+    place-content: center;
+    background-color: rgba(115, 147, 179, 0.47);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
   }
-}
 
-.loader-container {
-  transition: all 1s ease-out;
-  display: grid;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background-color: rgba(0, 174, 255, 0.54);
-  position: absolute;
-  place-content: center;
-}
+  .loader {
+    width: 250px;
+    height: 250px;
+    scale: 0.8;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    background-color: #444;
+    transform-origin: 50% 100%;
+    animation: rotarBall 1s linear alternate infinite both;
+    transition: opacity 0.75s, visibility 0.75s;
+  }
 
-.loader {
-  width: 250px;
-  height: 250px;
-  scale: 0.8;
-  border: 4px solid #fff;
-  border-radius: 50%;
-  position: relative;
-  background-color: #444;
-  transform-origin: 50% 100%;
-  animation: rotarBall 1s linear alternate infinite both;
-  transition: opacity 0.75s, visibility 0.75s;
-}
+  .cap {
+    width: 50%;
+    height: 18%;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    left: 50%;
+    position: absolute;
+    top: -4%;
+    transform: translateX(-50%);
+    background-color: #444;
+  }
 
-.cap {
-  width: 50%;
-  height: 18%;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  left: 50%;
-  position: absolute;
-  top: -4%;
-  transform: translateX(-50%);
-  background-color: #444;
-}
+  .shadow-top {
+    position: absolute;
+    width: 55%;
+    height: 25%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    left: 50%;
+    top: 19%;
+    transform: translateX(-50%) scale(0.9);
+  }
 
-.shadow-top {
-  position: absolute;
-  width: 55%;
-  height: 25%;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  left: 50%;
-  top: 19%;
-  transform: translateX(-50%) scale(0.9);
-}
+  .circle {
+    width: 96%;
+    height: 96%;
+    background-color: #20a5e1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    animation: rotarCicle 1.5s linear alternate infinite both;
+  }
 
-.circle {
-  width: 96%;
-  height: 96%;
-  background-color: #20a5e1;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-  animation: rotarCicle 1.5s linear alternate infinite both;
-}
+  .circle-top {
+    background-color: #40c9ff;
+    width: 96%;
+    height: 10%;
+    position: absolute;
+    border-radius: 50%;
+    top: 45.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: rotarCircleTop 1.5s linear alternate infinite both;
+  }
 
-.circle-top {
-  background-color: #40c9ff;
-  width: 96%;
-  height: 10%;
-  position: absolute;
-  border-radius: 50%;
-  top: 45.5%;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: rotarCircleTop 1.5s linear alternate infinite both;
-}
+  .fish {
+    position: absolute;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    animation: moveFish 2s linear infinite both;
+  }
 
-.fish {
-  position: absolute;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  animation: moveFish 2s linear infinite both;
-}
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
 
-.loader--hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.shadow-bottom {
-  scale: 0.8;
-  position: absolute;
-  top: calc(50% + 125px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 275px;
-  height: 40px;
-  z-index: -1;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.67);
-  filter: blur(20px);
-}
+  .shadow-bottom {
+    scale: 0.8;
+    position: absolute;
+    top: calc(50% + 125px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 275px;
+    height: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.67);
+    filter: blur(20px);
+  }
 </style>
 
 <div class="loader-container">
@@ -204,25 +207,25 @@
 </div>
 
 <script>
-window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader-container");
-  const content = document.getElementById("content");
+  window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader-container");
+    const content = document.getElementById("content");
 
-  // Hide loader
-  setTimeout(() => {
-    loader.classList.add("loader--hidden");
-
-    // Show content
+    // Hide loader
     setTimeout(() => {
-      content.classList.remove("hidden");
-    }, 500);
-  }, 1500); // Added a delay to show the loader animation
+      loader.classList.add("loader--hidden");
 
-  // In case transitionend doesn't fire
-  loader.addEventListener("transitionend", () => {
-    if (loader.classList.contains("loader--hidden")) {
-      loader.style.display = "none";
-    }
+      // Show content
+      setTimeout(() => {
+        content.classList.remove("hidden");
+      }, 500);
+    }, 1500); // Added a delay to show the loader animation
+
+    // In case transitionend doesn't fire
+    loader.addEventListener("transitionend", () => {
+      if (loader.classList.contains("loader--hidden")) {
+        loader.style.display = "none";
+      }
+    });
   });
-});
 </script>

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+  <?php include('loader.blade.php'); ?>
   <?php if (isset($message) && !empty($message)): ?>
     <div class="message <?php echo $messageType; ?>">
       <?php echo $message; ?>

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
   <div class="wrapper">
     <form action="/auth/register" method="POST">
       <h1>Register</h1>
@@ -48,7 +49,9 @@
 
     </form>
   </div>
+
 </body>
+
 <script>
   const togglePassword = document.getElementById('togglePassword');
   const passwordInput = document.getElementById('password');

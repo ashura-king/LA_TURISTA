@@ -8,16 +8,13 @@
   <link rel="stylesheet" href="css/spot.css">
   <link rel="stylesheet" href="css/profile.css">
   <script src="js/profile.js" defer></script>
-
-
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-  <?php include('loader.blade.php'); ?>
+
 
 </head>
-
+<?php include('loader.blade.php'); ?>
 <!-- Display messages if they exist -->
 <?php if (isset($message) && !empty($message)): ?>
   <div class="message <?php echo $messageType; ?>">
