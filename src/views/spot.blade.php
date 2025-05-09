@@ -14,13 +14,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+  <?php include('loader.blade.php'); ?>
+
 </head>
 
 <!-- Display messages if they exist -->
 <?php if (isset($message) && !empty($message)): ?>
-<div class="message <?php echo $messageType; ?>">
-  <?php echo $message; ?>
-</div>
+  <div class="message <?php echo $messageType; ?>">
+    <?php echo $message; ?>
+  </div>
 <?php endif; ?>
 
 <section class="hero">
