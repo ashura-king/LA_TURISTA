@@ -63,7 +63,7 @@ class AuthService
 
     setcookie('auth_token', $token, [
       'path' => '/',
-      'expires' => time() + 86 * 120 * 60,
+      'expires' => time() - 3600,
       'domain' => 'localhost',
       'secure' => true,
       'httponly' => true,
@@ -71,5 +71,6 @@ class AuthService
     ]);
 
     session_destroy();
+    return redirect('/auth/login');
   }
 }

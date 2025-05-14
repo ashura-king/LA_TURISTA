@@ -63,7 +63,7 @@ color: #000;
   margin-top: 15px;
   padding: 10px 20px;
   appearance: none;
-  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  background-image: radial-gradient(100% 100% at 100% 0, #0ca4dc 0, #0baece  100%);
   border: 0;
   border-radius: 6px;
  
@@ -92,7 +92,7 @@ color: #000;
 
 }
 .popup-dialog-content button:focus{
-  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  box-shadow: #0ca4dc 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #0baece 0 -3px 0 inset;
 
 }
 

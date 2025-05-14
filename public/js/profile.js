@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateBtn.disabled = true;
     
     // Make API call
-    callApi('/edit/updateProfile', 'POST', { username, email })
+  callApi('/edit/updateProfile', 'POST', { username, email })
       .then(data => {
         
         const usernameDisplay = document.querySelector('.user-info h3');
@@ -175,7 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
  
   // Delete Account Handler
-  const deleteBtn = document.getElementById('delete');
+ // Account deletion functionality
+const deleteBtn = document.getElementById('delete'); 
 if (deleteBtn) {
   deleteBtn.addEventListener('click', function(e) {
     e.preventDefault();
@@ -199,12 +200,10 @@ if (deleteBtn) {
           throw new Error(`Request failed with status: ${response.status}`);
         }
         
-        // Handle successful deletion regardless of response content
-        showNotification('Account deleted successfully. Redirecting to homepage...', true);
+        showNotification('Account deleted successfully. Redirecting to login page...', true);
         
-        // Redirect after successful deletion
         setTimeout(() => {
-          window.location.href = '/';
+          window.location.href = '/auth/login';
         }, 2000);
       })
       .catch(error => {
@@ -212,23 +211,22 @@ if (deleteBtn) {
         showNotification('Failed to delete account. Please try again.', false);
       })
       .finally(() => {
-        // Always reset button state
         deleteBtn.textContent = 'Delete Account';
         deleteBtn.disabled = false;
       });
     }
-  });
+  }); 
 }
+
+// Submenu close functionality when clicking outside
+document.addEventListener('click', function(event) {
+  const subMenu = document.getElementById("subMenu");
+  const userImg = document.querySelector('.user-pic');
   
- 
-  document.addEventListener('click', function(event) {
-    const subMenu = document.getElementById("subMenu");
-    const userImg = document.querySelector('.user-pic'); 
-    
-    if (subMenu && subMenu.classList.contains('open-menu') && 
-        !subMenu.contains(event.target) && 
-        event.target !== userImg) {
-      subMenu.classList.remove('open-menu');
-    }
-  });
+  if (subMenu && subMenu.classList.contains('open-menu') && 
+      !subMenu.contains(event.target) &&
+      event.target !== userImg) {
+    subMenu.classList.remove('open-menu');
+  }
+});
 });
