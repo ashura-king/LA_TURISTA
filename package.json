@@ -1,0 +1,24 @@
+{
+  "name": "php-mono",
+  "version": "1.0.0",
+  "description": "Mono is a powerful, fast, and lightweight PHP framework designed to simplify and accelerate web application development. It leverages an object-oriented approach and adheres to the MVC (Model-View-Controller) architecture, ensuring a clean and modular codebase. Mono also includes a robust command-line interface (CLI) to streamline development tasks.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./public/css/app.css -o ./public/css/tailwind-build.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zorncbllr/php-mono.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zorncbllr/php-mono/issues"
+  },
+  "homepage": "https://github.com/zorncbllr/php-mono#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.15",
+    "tailwindcss": "^4.0.15"
+  }
+}

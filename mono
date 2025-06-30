@@ -1,0 +1,148 @@
+<?php
+
+use Src\Core\App;
+use Src\Core\Database;
+
+use function Src\Core\Utils\Helpers\getdir;
+
+require_once str_replace("\\", "/", __DIR__) . "/src/core/utils/helpers/getdir.php";
+require_once getdir(__DIR__) . '/vendor/autoload.php';
+Dotenv\Dotenv::createImmutable(getdir(__DIR__))->load();
+
+
+function handleOperation($mode, $arg1 = '', $arg2 = '')
+{
+    if ($mode === 'gen' || $mode === 'generate' || $mode === '-g') {
+        $command = "php src/core/utils/mono_cli/cli.php \"gen\" " . escapeshellarg($arg1) . " " . escapeshellarg($arg2);
+        system($command);
+
+        return;
+    }
+
+    if ($mode === 'serve' || $mode === '-s') {
+        $port = 3000;
+        $command = "php -S localhost:{$port} -t public -f index.php";
+        while (!system($command)) {
+            $port++;
+            $command = "php -S localhost:{$port} -t public -f index.php";
+            system($command);
+        }
+
+        return;
+    }
+
+    if ($mode === 'fill' || $mode === '-f') {
+        $command = "php src/core/utils/mono_cli/cli.php \"fill\" " . escapeshellarg($arg1);
+        system($command);
+
+        return;
+    }
+
+    if ($mode === 'update' || $mode === '-u' && $arg1 === 'core') {
+        echo "\nFetching core repository...\n";
+
+        function error_handler()
+        {
+            echo "\nUpdate failed: there seems to be a problem updating core files, check your internet connection and try again.\n";
+            exit();
+        }
+
+        function update_readme($dir)
+        {
+            file_put_contents('README.md', shell_exec("git show HEAD:README.md"));
+        }
+
+        function update_core($dir)
+        {
+            system("rmdir /S /Q $dir");
+            if (system("git clone  https://github.com/zorncbllr/core.git $dir")) {
+                update_readme($dir);
+                echo "\nCore files up to date.\n";
+            }
+        }
+
+        switch (PHP_OS_FAMILY) {
+            case 'Windows':
+                if (!str_contains(system("ping -n 1 github.com"), "ms")) {
+                    error_handler();
+                }
+                $dir = getdir(__DIR__) . '\\src\\core';
+                update_core($dir);
+                break;
+            case 'Linux':
+                if (!str_contains(system("ping -c 1 github.com"), "ms")) {
+                    error_handler();
+                }
+                $dir = getdir(__DIR__) . '/src/core';
+                update_core($dir);
+                break;
+        }
+        return;
+    }
+
+    if ($mode === 'help' || $mode === '-h') {
+        showHelp();
+
+        return;
+    }
+
+    if ($mode === 'db' && $arg1 === 'push') {
+        try {
+            include_once getdir(__DIR__) . '/src/core/Database.php';
+            include_once getdir(__DIR__) . '/src/core/Model.php';
+            spl_autoload_register(function ($model) {
+                $path = getdir(__DIR__) . "/src/models/{$model}.php";
+                if (file_exists($path)) {
+                    require_once $path;
+                }
+            });
+            echo "Iniatilizing...";
+            if (!empty($arg2)) {
+                $model = ucfirst($arg2);
+                eval("Src\\Models\\{$model}::init{$model}();");
+            } else {
+                Src\Core\Database::initModels();
+            }
+            echo "\nDatabase initialization process complete.\nTable migration successfully executed.\n";
+        } catch (Error $err) {
+            die("Database initializing error: {$err->getMessage()}.\n");
+        }
+        return;
+    }
+
+    echo "  Invalid mono command.\n";
+    showHelp();
+    echo "\n\r Please refer to the usage options above.\n";
+}
+
+function showHelp()
+{
+    echo "
+    Usage: php mono <mode> [arg1] [arg2]
+
+    <modes>        <shorcut flags>            <arg1>              <arg2>
+    generate            -g             controller  or  con       <filename>
+                        -g             model       or  mod       <filename>
+                        -g             view        or  vw        <filename>
+                        -g             middleware  or  mid       <filename>
+                        -g             service     or  ser       <filename>
+                        -g             component   or  comp      <filename>
+
+    fill                -f                    <model>
+    serve               -s
+    update              -u                     core
+    db                                         push
+    help                -h
+    ";
+}
+
+if ($argc < 2) {
+    showHelp();
+    exit(1);
+}
+
+$mode = $argv[1];
+$arg1 = $argc > 2 ? $argv[2] : '';
+$arg2 = $argc > 3 ? $argv[3] : '';
+
+handleOperation($mode, $arg1, $arg2);
